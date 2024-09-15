@@ -36,3 +36,36 @@ git add .
 Realize o primeiro commit para iniciar o versionamento
 ```pwsh
 git commit -m "First commit"
+```
+
+## Django
+O projeto em questão utilizará o framework Django.
+
+Para instalar o Django execute o seguinte comando, dentro do ambiente virtual do projeto:
+
+```pwsh
+pip install django
+```
+
+Aguarde a instalação das bibliotecas e pacotes do Django no projeto.
+
+Em seguida verifique a versão do Django:
+
+```pwsh
+django-admin --version
+```
+A execução do comando deve exibir na tela a versão do framework Django instalado.
+
+Agora é a hora de iniciar o projeto Django
+
+```pwsh
+django-admin startproject app .
+```
+O código acima utiliza uma função do Django para iniciar o projeto e coloca-lo em uma pasta chamada `app`. O ponto no final do código serve para indicar que a pasta `app` será criada na raiz do projeto.
+
+Para garantir que o projeto Django foi criado com sucesso e esta em boas condições, inicie um servidor de testes:
+
+```pwsh
+python .\manage.py runserver
+```
+O código acima irá executar um servidor de testes baseado no arquivo `manage.py` localizado na pasta raiz do projeto, onde contém as configurações do projeto Django.
