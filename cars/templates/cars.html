@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus carros</title>
-</head>
-<body>
-    <h1>Carros da PycodeBR</h1>
-    <h3>Só carro top!</h3>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meus carros</title>
+    </head>
+    {% block content %}
+        <body>
+            <h1>Carro 1: {{ cars.model }}<h1>
+        </body>
+    {% endblock %}
 </html>
