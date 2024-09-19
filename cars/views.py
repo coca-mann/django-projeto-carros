@@ -5,7 +5,7 @@ def cars_view(request):
     cars = Car.objects.all()
     search = request.GET.get('search')
     if search:
-        cars = Car.objects.filter(model__contains=search)
+        cars = cars.filter(model__contains=search)
     
 
     return render(
