@@ -1,8 +1,8 @@
-### Criando Nosso Primeiro Formulário no Django
+# Criando Nosso Primeiro Formulário no Django
 
 O Django oferece uma maneira prática e eficiente para criar e gerenciar formulários utilizando o sistema de **Django Forms**. Neste exemplo, vamos criar um formulário para adicionar um novo carro ao nosso sistema, conectando o formulário com o modelo `Car`, criando uma view para processar o formulário e renderizando-o em um template.
 
-#### Passo 1: Criar o Arquivo `forms.py`
+## Passo 1: Criar o Arquivo `forms.py`
 
 Dentro do diretório do app `cars`, crie um arquivo chamado `forms.py`. Nesse arquivo, vamos criar uma classe `CarForm`, que será responsável por gerar os campos do formulário com base no modelo `Car`.
 
@@ -75,7 +75,7 @@ class CarForm(forms.Form):
 - Quando o formulário envolve campos que não estão diretamente relacionados a um modelo do Django, ou quando o formulário manipula dados que precisam de tratamento específico antes de serem salvos no banco de dados. 
 
 
-#### Passo 2: Criar uma View para Processar o Formulário
+## Passo 2: Criar uma View para Processar o Formulário
 
 Agora, vamos adicionar uma nova função no arquivo `views.py` para processar o formulário. Essa função será responsável por exibir o formulário na página e lidar com o envio de dados.
 
@@ -101,7 +101,7 @@ def new_car_view(request):
 - **`form.save()`**: Salva o novo carro no banco de dados.
 - **`redirect()`**: Redireciona o usuário para a página de lista de carros após o formulário ser submetido com sucesso.
 
-#### Passo 3: Adicionar Rota para a View no `urls.py`
+## Passo 3: Adicionar Rota para a View no `urls.py`
 
 Agora, adicione uma nova rota no arquivo `urls.py` para que a view `new_car_view` seja acessível por uma URL.
 
@@ -118,7 +118,7 @@ urlpatterns = [
 
 - **`new_car_view`**: A URL `/cars/new/` será usada para acessar o formulário de adição de carros.
 
-#### Passo 4: Criar o Template `new_car.html`
+## Passo 4: Criar o Template `new_car.html`
 
 Agora, vamos criar o template que exibirá o formulário para adicionar um novo carro. O arquivo `new_car.html` será responsável por renderizar o formulário gerado pela classe `CarForm` e permitir que o usuário insira os dados.
 
@@ -147,11 +147,11 @@ Agora, vamos criar o template que exibirá o formulário para adicionar um novo 
 - **`{{ new_car_form.as_p }}`**: Renderiza os campos do formulário no formato de parágrafos.
 - **`enctype="multipart/form-data"`**: Permite o envio de arquivos, como imagens (campo `photo`).
 
-#### Passo 5: Testar o Formulário
+## Passo 5: Testar o Formulário
 
 Agora, ao acessar a URL `/cars/new/`, o formulário será exibido. O usuário poderá preencher os campos e submeter o formulário, que será processado pela view e salvará os dados no banco de dados.
 
-#### Campos de Formulário
+## Campos de Formulário
 
 Os principais tipos de campos de formulário utilizados aqui são gerados automaticamente pelo Django com base nos tipos de dados definidos no modelo `Car`:
 
