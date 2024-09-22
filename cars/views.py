@@ -18,17 +18,17 @@ from django.views.generic import ListView
 #     )
 
 
-class CarsView(View):
-    def get(self, request):
-        cars = Car.objects.all().order_by('model')
-        search = request.GET.get('search')
-        if search:
-            cars = cars.filter(model__icontains=search)
-        return render(
-            request,
-            'cars.html',
-            {'cars': cars }
-        )
+# class CarsView(View):
+#     def get(self, request):
+#         cars = Car.objects.all().order_by('model')
+#         search = request.GET.get('search')
+#         if search:
+#             cars = cars.filter(model__icontains=search)
+#         return render(
+#             request,
+#             'cars.html',
+#             {'cars': cars }
+#         )
 
 class CarsListView(ListView):
     model = Car
