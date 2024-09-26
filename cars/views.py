@@ -4,31 +4,6 @@ from cars.forms import CarModelForm
 from django.views import View
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
-# def cars_view(request):
-#     cars = Car.objects.all().order_by('model')
-#     search = request.GET.get('search')
-#     if search:
-#         cars = cars.filter(model__contains=search)
-    
-
-#     return render(
-#         request,
-#         'cars.html',
-#         {'cars': cars }
-#     )
-
-
-# class CarsView(View):
-#     def get(self, request):
-#         cars = Car.objects.all().order_by('model')
-#         search = request.GET.get('search')
-#         if search:
-#             cars = cars.filter(model__icontains=search)
-#         return render(
-#             request,
-#             'cars.html',
-#             {'cars': cars }
-#         )
 
 class CarsListView(ListView):
     model = Car
@@ -42,29 +17,6 @@ class CarsListView(ListView):
             cars = cars.filter(model__icontains=search)
         return cars
 
-
-# def new_car_view(request):
-#     if request.method == 'POST':
-#         new_car_form = CarModelForm(request.POST, request.FILES)
-#         if new_car_form.is_valid():
-#             new_car_form.save()
-#             return redirect('cars_list')
-#     else:
-#         new_car_form = CarModelForm()
-#     return render(request, 'new_car.html', { 'new_car_form': new_car_form })
-
-
-# class NewCarView(View):
-#     def get(self, request):
-#         new_car_form = CarModelForm()
-#         return render(request, 'new_car.html', { 'new_car_form': new_car_form })
-#     def post(self, request):
-#         new_car_form = CarModelForm(request.POST, request.FILES)
-#         if new_car_form.is_valid():
-#             new_car_form.save()
-#             return redirect('cars_list')
-#         return render(request, 'new_car.html', { 'new_car_form': new_car_form })
-    
 
 class NewCarCreateView(CreateView):
     model = Car
