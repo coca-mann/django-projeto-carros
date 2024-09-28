@@ -29,18 +29,6 @@ def car_inventory_update():
 
 A função `car_inventory_update` desempenha um papel crucial na manutenção e atualização do inventário de carros. Vamos detalhar cada parte da função para entender como ela funciona:
 
-#### Função `car_inventory_update`
-
-```python
-def car_inventory_update():
-    cars_count = Car.objects.all().count()
-    cars_value = Car.objects.aggregate(total_value=Sum('value'))['total_value']
-    CarInventory.objects.create(
-        cars_count=cars_count,
-        cars_value=cars_value
-    )
-```
-
 #### 1. **Objetivo da Função**
 A função **`car_inventory_update`** é responsável por calcular e atualizar o número total de carros e o valor total desses carros no banco de dados. Ela faz isso toda vez que um carro é salvo (criado ou atualizado) ou deletado, garantindo que o inventário sempre reflita o estado mais recente.
 
