@@ -1,8 +1,11 @@
+import os
+import google.generativeai as genai
 from django.db.models.signals import post_save, post_delete, pre_save
 from django.db.models import Sum
 from django.dispatch import receiver
 from cars.models import Car, CarInventory
 
+genai.configure(api_key=os.environ['GEMINI_AI_API_KEY'])
 
 def car_inventory_update():
     cars_count = Car.objects.all().count()
