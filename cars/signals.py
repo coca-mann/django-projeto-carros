@@ -21,11 +21,13 @@ def car_post_save(sender, instance, **kwargs):
 
 
 @receiver(post_delete, sender=Car)
-def car_post_save(sender, instance, **kwargs):
+def car_post_delete(sender, instance, **kwargs):
     car_inventory_update()
 
 
 @receiver(pre_save, sender=Car)
 def car_pre_save(sender, instance, **kwargs):
     if not instance.bio:
-        instance.bio = 'Bio gerada automaticamente'
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        response = model.generate_content("Me de uma descrição sobre o carro {} da marca {} do ano {}, de no máximo 250 caractéres. Fale especificamente sobre esse carro".format(instance.model, instance.brand, instance.model_year))
+        instance.bio = response.text
